@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<section>
+    <br>
+    <div class="container-md text-center">
+        {% if request.user.is_authenticated %}
+        <h4>
+            {{user.username | upper}}, Bienvenido a Video World
+        </h4>
+        {% else %}
+        <h4>
+            Bienvenido a Video World
+        </h4>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center" style="margin-top: 60px;position: relative;">
+    <div class="col-4" style="background-color: #dddddd; margin-left: 100px;">
+        <div style="width: 100%; height: 400px; overflow-y: scroll;">
+            <div>
+                {% for x in video %}
+                <div style="display: flex; align-items: center;">
+                    <iframe width="200" height="150" src="https://www.youtube.com/embed/VIDEO_ID_1"></iframe>
+                    <p style="margin-left: 10px;color: black;">Descripción del video 1</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}
