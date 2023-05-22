@@ -1,0 +1,24 @@
+{% extends 'core/videos.html' %}
+
+{% block content %}
+<br>
+<div class="d-flex" style="margin-left: 200px;margin-right: 200px;align-content: center; justify-content: center; background-color:  #dddddd;border-radius: 50px;">
+    <form method="get" action="{% url 'buscar_videos' %}">
+        <div class="d-flex" style="margin-top: 10px; margin-bottom: 10px;">
+            <input class="form-control me-2" name="buscar" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-outline-dark" type="submit"><i class="bi bi-search"></i></button>
+        </div>
+    </form>
+</div>
+
+{% if video %}
+<div class="row justify-content-center" style="margin-top: 60px;position: relative;">
+    <div class="col-5" style="background-color:  #dddddd;margin: 0;padding: 0;position: relative;">
+        <video class="video-fluid" id="videoPlayer" width="100%" controls>
+            <source src="{{ video.0.video.url }}">
+        </video>
+        <h1 id="videoCaption" style="font-family: 'Garamond',serif;color: black;">{{ video.0.name }}</h1>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

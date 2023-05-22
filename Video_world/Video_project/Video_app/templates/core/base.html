@@ -91,26 +91,13 @@
                         <a class="btn btn-primary" role="button" style="background-color: black;" href={% url 'home' %}>Inicio</a>
                         <a class="btn btn-primary" role="button" style="background-color: black;" href={% url 'videos' %}>Videos</a>
                         {% if request.user.is_authenticated %}
+                        <a class="btn btn-primary" role="button" style="background-color: black;" href={% url 'buscar_videos' %}>Buscar videos</a>
                         <a class="btn btn-primary" role="button" style="background-color: black;" href={% url 'exit' %}>Salir</a>
                         {% else %}
                         <a class="btn btn-primary" role="button" style="background-color: black;" href={% url 'login' %}>Ingresar</a>
                         {% endif %}
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <div class="d-flex" style="margin-right: 20px;">
-                        <li class="btn btn-dark" type="submit" style="margin-left: 20px;"
-                            onclick="window.location = 'login'">
-                            <i class="bi bi-person-circle"></i>
-                        </li>
-                    </div>
-
-                    <form method="get">
-                        <div class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                            <button class="btn btn-outline-dark" type="submit"><i class="bi bi-search"></i></button>
-                        </div>
-                    </form>
             </div>
         </nav>
     </div>

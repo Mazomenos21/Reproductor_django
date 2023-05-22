@@ -1,15 +1,19 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-
 <div class="row justify-content-center" style="margin-top: 60px;position: relative;">
+    <div class="col-5" style="background-color:  #dddddd;margin: 0;padding: 0;position: relative;">
+        <video class="video-fluid" id="videoPlayer" width="100%" controls></video>
+        <h1 id="videoCaption" style="font-family: 'Garamond',serif;color: black;"></h1>
+    </div>
     <div class="col-4" style="background-color: #dddddd; margin-left: 100px;">
         <div style="width: 100%; height: 400px; overflow-y: scroll;">
             <div>
                 {% for x in video %}
                 <div style="display: flex; align-items: center;">
-                    <iframe width="200" height="150" src="https://www.youtube.com/embed/VIDEO_ID_1"></iframe>
-                    <p style="margin-left: 10px;color: black;">Descripción del video 1</p>
+                    <img src="{{x.miniatura.url}}" class="miniatura" width="200" height="150"
+                         onclick="playVideo('{{ x.video.url }}', '{{ x.caption }}')">
+                    <p style="margin-left: 10px;color: black;">{{ x.name }}</p>
                 </div>
                 {% endfor %}
             </div>
@@ -17,6 +21,21 @@
 
     </div>
 </div>
+<script>
+    function playVideo(videoUrl, caption) {
+        var videoPlayer = document.getElementById('videoPlayer');
+        var videoSource = document.createElement('source');
+        videoSource.setAttribute('src', videoUrl);
+        videoSource.setAttribute('type', 'video/mp4');
+
+        videoPlayer.innerHTML = ''; // Limpiar el contenido anterior
+        videoPlayer.appendChild(videoSource);
+        videoPlayer.load();
+
+        var videoCaption = document.getElementById('videoCaption');
+        videoCaption.innerText = caption;
+    }
+</script>
 
 
 {% endblock %}
